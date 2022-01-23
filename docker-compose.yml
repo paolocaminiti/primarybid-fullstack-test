@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+  server:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile.server
+    ports:
+      - 3001:3001
+    environment:
+      - PORT=3001
+      - EXPOSE_GRAPHIQL=true
+      - ALIAS_BASE_URL=https://pbid.io
+      - MONGO_URI=mongodb://mongo:27017/url-registry
+    depends_on:
+      - mongo
+  frontend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.frontend
+    ports:
+      - 80:80
+    depends_on:
+      - server
