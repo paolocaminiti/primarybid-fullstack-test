@@ -28,3 +28,110 @@ a {
   color: initial;
   text-decoration: none;
 }
+
+button {
+  background-color: white;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+  border: 0;
+  box-shadow: 8px 8px black;
+  transition: .2s box-shadow;
+}
+
+button:disabled {
+  box-shadow: 4px 4px lightgrey;
+}
+
+button:active {
+  box-shadow: 4px 4px black;
+}
+
+.registry {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  min-height: 100%;
+  padding-bottom: 128px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  padding: 16px 0;
+  background-color: white;
+}
+
+.url-input {
+  display: flex;
+}
+
+.url-input input {
+  flex: 1;
+  padding: 16px;
+  font-size: 21px;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 8px lightblue;
+  transition: .2s border-color;
+}
+
+.url-input button {
+  margin-left: 16px;
+  padding: 0 16px;
+}
+
+.user-hint {
+  position: fixed;
+  bottom: 100px;
+  padding: 16px;
+  background: yellow;
+  color: black;
+}
+
+.user-hint.error {
+  position: fixed;
+  bottom: 100px;
+  padding: 16px;
+  background: red;
+  color: white;
+  z-index: 10000;
+}
+
+.submit {
+  margin: 24px 0 0 0;
+}
+
+.submit button {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+}
+
+.record {
+  padding: 16px;
+  margin: 8px 0;
+  background-color: lightblue;
+  border-radius: 8px;
+  transition: .2s background-color;
+  cursor: pointer;
+}
+
+.record .layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.record .alias {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.record .url {
+  color: grey;
+}
+
+.record .date {
+  margin-left: 16px;
+  text-align: center;
+}

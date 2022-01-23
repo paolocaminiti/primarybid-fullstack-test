@@ -1,4 +1,5 @@
 import { gql, useQuery } from '@apollo/client'
+import RecordItem from './RecordItem'
 
 export interface Record {
   id: string
@@ -22,7 +23,7 @@ export const getUrlsQuery = gql`
   }
 `
 
-export default function Records () {
+export default function Records ({ query }: { query: string }) {
   const { data, loading, error } = useQuery<GetUrlsData>(getUrlsQuery)
 
   if (error) {
@@ -36,7 +37,10 @@ export default function Records () {
   const records = data?.getUrls
   return (
     <>
-      {records?.map(i => JSON.stringify(i))}
+      {records?.map(i => {
+        const shouldShow = i.url.indexOf(query) !== -1
+        return <RecordItem key={i.id} show={shouldShow} {...i} />
+      })}
     </>
   )
 }

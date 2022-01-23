@@ -1,7 +1,7 @@
-import Records from './Records'
+import Registry from './Registry'
 
 export default function App () {
   return (
-    <Records />
+    <Registry />
   )
 }
