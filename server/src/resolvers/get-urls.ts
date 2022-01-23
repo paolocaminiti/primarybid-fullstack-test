@@ -1,16 +1,10 @@
-export default async function getUrls () {
-  return [
-    {
-      id: 'abc',
-      alias: 'http://pbio.com/123',
-      url: 'http://example.com',
-      createdAt: '123',
-    },
-    {
-      id: 'def',
-      alias: 'http://pbio.com/234',
-      url: 'http://example.com/234',
-      createdAt: '456',
-    }
-  ]
+import UrlRegistryService, { UrlRecord } from '../urls-registry-service'
+
+export default async function getUrls (): Promise<UrlRecord[]> {
+  try {
+    return await UrlRegistryService.getAll()
+  } catch (e) {
+    console.error('getUrls', e)
+    throw new Error('500 Internal Error')
+  }
 }
