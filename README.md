@@ -42,6 +42,7 @@ npm test
 /frontend
 npm install
 npm start
+npm test
 ```
 
 # Comments
